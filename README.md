@@ -5,10 +5,13 @@ XKYMOUSE TESTER
 ![Tech](https://img.shields.io/badge/tech-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
 ![License](https://img.shields.io/badge/license-Proprietary-red)
 
+
 **XKYMouse Tester** is a browser-based mouse diagnostic and performance analysis tool built to evaluate input behavior, precision, and consistency in real time.
 
 Designed for both casual users and enthusiasts, it provides visual feedback and analytical insights into how your mouse performs under actual usage conditions.
 
+---
+[![Sponsor on GitHub](https://dabuttonfactory.com/button.png?t=Click+To+Test&f=Roboto-Bold&ts=28&tc=fff&hp=45&vp=20&w=1000&h=50&c=11&bgt=unicolored&bgc=f00)](https://xkymouse-tester.vercel.app/)
 ---
 
 ## 🚀 Features
