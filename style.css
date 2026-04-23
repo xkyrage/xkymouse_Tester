@@ -126,6 +126,39 @@ body {
   fill: #38bdf8;
 }
 
+.hint {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.mouse-wrapper {
+  position: relative;
+}
+
+.mouse-hint {
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(150%);
+  top: 10px;
+  left: 10px;
+  right: 10px;
+
+  font-size: 12px;
+  color: #94a3b8;
+
+  background: rgba(2,6,23,0.7);
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  text-align: justify;   /* ✅ THIS is what you want */
+  line-height: 1.4;
+
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
 /* canvas */
 canvas {
   width: 100%;

@@ -4,6 +4,7 @@ import { getJitterScore } from "./analytics.js";
 let clicks = 0;
 let moveCount = 0;
 let lastTime = performance.now();
+let maxPolling = 0; // 🔥 NEW
 
 export function initStats() {
 
@@ -13,9 +14,10 @@ export function initStats() {
   const latency = document.getElementById("latency");
   const polling = document.getElementById("polling");
   const jitter = document.getElementById("jitter");
+  const maxEl = document.getElementById("maxPolling"); // 🔥 NEW
 
-  // 🎯 Polling now comes from mouse path area
-  canvas.addEventListener("mousemove", () => {
+  // 🔥 unified handler (avoids duplicate logic)
+  function handleMove() {
     moveCount++;
 
     const now = performance.now();
@@ -23,23 +25,39 @@ export function initStats() {
 
     if (delta > 0) {
       const hz = 1000 / delta;
+
       pushPolling(hz);
+
+      // ✅ track max polling
+      if (hz > maxPolling) {
+        maxPolling = hz;
+      }
     }
 
     lastTime = now;
-  });
+  }
+
+  // 🔥 use best available event
+  if ("onpointerrawupdate" in window) {
+    canvas.addEventListener("pointerrawupdate", handleMove);
+  } else {
+    canvas.addEventListener("mousemove", handleMove);
+  }
 
   setInterval(() => {
-    cps.textContent = clicks;
-    polling.textContent = moveCount + " Hz";
-    jitter.textContent = getJitterScore();
+    if (cps) cps.textContent = clicks;
+    if (polling) polling.textContent = moveCount + " Hz";
+    if (jitter) jitter.textContent = getJitterScore();
+
+    // 🔥 update max polling UI
+    if (maxEl) maxEl.textContent = Math.round(maxPolling) + " Hz";
 
     clicks = 0;
     moveCount = 0;
   }, 1000);
 
   window.__latency = (v) => {
-    latency.textContent = v.toFixed(2) + " ms";
+    if (latency) latency.textContent = v.toFixed(2) + " ms";
   };
 }
 

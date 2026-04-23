@@ -28,6 +28,7 @@
       <div class="stat"><span>CPS</span><h2 id="cps">0</h2></div>
       <div class="stat"><span>Latency</span><h2 id="latency">0 ms</h2></div>
       <div class="stat"><span>Polling</span><h2 id="polling">0 Hz</h2></div>
+      <div class="stat"><span>Max Hz</span><h2 id="maxPolling">0 Hz</h2></div>
       <div class="stat"><span>Jitter</span><h2 id="jitter">0</h2></div>
     </div>
 
@@ -36,21 +37,27 @@
       <div class="grid">
 
         <div class="card mouse-card">
-          <h3>Mouse Tester</h3>
+  <h3>Mouse Tester</h3>
 
-          <svg viewBox="0 0 200 300" class="mouse-svg">
-            <rect x="10" y="10" width="180" height="280" rx="90" class="mouse-body"/>
+  <div class="mouse-wrapper">
+    <span class="mouse-hint">
+      Click inside this area to test mouse inputs
+    </span>
 
-            <path d="M10 10 L100 10 L100 150 L10 150 Z" class="btn" data-button="0"/>
-            <path d="M100 10 L190 10 L190 150 L100 150 Z" class="btn" data-button="2"/>
-            <rect x="85" y="140" width="30" height="40" class="btn" data-button="1"/>
+    <svg viewBox="0 0 200 300" class="mouse-svg">
+      <rect x="10" y="10" width="180" height="280" rx="90" class="mouse-body"/>
 
-            <rect id="scrollWheel" x="90" y="80" width="20" height="40" class="scroll"/>
+      <path d="M10 10 L100 10 L100 150 L10 150 Z" class="btn" data-button="0"/>
+      <path d="M100 10 L190 10 L190 150 L100 150 Z" class="btn" data-button="2"/>
+      <rect x="85" y="140" width="30" height="40" class="btn" data-button="1"/>
 
-            <rect x="170" y="120" width="15" height="25" class="btn" data-button="3"/>
-            <rect x="170" y="150" width="15" height="25" class="btn" data-button="4"/>
-          </svg>
-        </div>
+      <rect id="scrollWheel" x="90" y="80" width="20" height="40" class="scroll"/>
+
+      <rect x="170" y="120" width="15" height="25" class="btn" data-button="3"/>
+      <rect x="170" y="150" width="15" height="25" class="btn" data-button="4"/>
+    </svg>
+  </div>
+</div>
 
         <div class="card">
           <h3>Latency + Polling</h3>
@@ -59,6 +66,9 @@
 
         <div class="card wide">
           <h3>Mouse Path</h3>
+          <p class="hint">
+  Move your mouse inside this box to measure polling rate (Hz)
+</p>
           <canvas id="dragCanvas"></canvas>
         </div>
 

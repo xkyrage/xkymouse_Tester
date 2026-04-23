@@ -4,7 +4,13 @@ import { pushLatency } from "./graph.js";
 import { handleRawMove } from "./raw.js";
 import { logClick, logLatency, logMove, detectJitter } from "./analytics.js";
 
+
 const testArea = document.querySelector(".mouse-card");
+const mouseHint = document.querySelector(".mouse-hint");
+
+testArea.addEventListener("mousedown", () => {
+  if (mouseHint) mouseHint.style.opacity = "0";
+});
 
 export function initInput() {
 
