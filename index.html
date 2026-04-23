@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XkyMouse Tester</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">🖱 XkyMouse Tester</h2>
+
+    <nav>
+      <button class="nav active" data-tab="overview">Overview</button>
+      <button class="nav" data-tab="about">About</button>
+
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOP STATS -->
+    <div class="topbar">
+      <div class="stat"><span>CPS</span><h2 id="cps">0</h2></div>
+      <div class="stat"><span>Latency</span><h2 id="latency">0 ms</h2></div>
+      <div class="stat"><span>Polling</span><h2 id="polling">0 Hz</h2></div>
+      <div class="stat"><span>Jitter</span><h2 id="jitter">0</h2></div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="tab active" id="overview">
+      <div class="grid">
+
+        <div class="card mouse-card">
+          <h3>Mouse Tester</h3>
+
+          <svg viewBox="0 0 200 300" class="mouse-svg">
+            <rect x="10" y="10" width="180" height="280" rx="90" class="mouse-body"/>
+
+            <path d="M10 10 L100 10 L100 150 L10 150 Z" class="btn" data-button="0"/>
+            <path d="M100 10 L190 10 L190 150 L100 150 Z" class="btn" data-button="2"/>
+            <rect x="85" y="140" width="30" height="40" class="btn" data-button="1"/>
+
+            <rect id="scrollWheel" x="90" y="80" width="20" height="40" class="scroll"/>
+
+            <rect x="170" y="120" width="15" height="25" class="btn" data-button="3"/>
+            <rect x="170" y="150" width="15" height="25" class="btn" data-button="4"/>
+          </svg>
+        </div>
+
+        <div class="card">
+          <h3>Latency + Polling</h3>
+          <canvas id="latencyGraph"></canvas>
+        </div>
+
+        <div class="card wide">
+          <h3>Mouse Path</h3>
+          <canvas id="dragCanvas"></canvas>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- OTHER TABS -->
+    <div class="tab" id="about"><div class="card">
+        <h2>About Mouse Tester Pro</h2>
+          <br>
+
+    <p>
+      Mouse Tester Pro is a browser-based diagnostic and interaction analysis tool
+      designed to evaluate mouse performance, input consistency, and user control.
+      Built with a focus on precision and real-time feedback, it provides both
+      visual and analytical insights into mouse behavior.
+    </p>
+  <br>
+    <h3>Core Features</h3>
+    <br>
+    <ul class="about-list">
+      <li><strong>Click Per Second (CPS):</strong> Measures click speed in real time.</li>
+      <li><strong>Latency Estimation:</strong> Approximates input delay using frame timing.</li>
+      <li><strong>Polling Rate Monitoring:</strong> Visualizes mouse report frequency (Hz) based on movement events.</li>
+      <li><strong>Real-Time Graph:</strong> Displays latency and polling spikes dynamically.</li>
+      <li><strong>Jitter Detection:</strong> Analyzes movement consistency and micro-variation.</li>
+      <li><strong>Drag Test (Slider Mode):</strong> Controlled horizontal movement test for precision and stability.</li>
+      <li><strong>Interactive Mouse UI:</strong> Visual feedback for all mouse buttons including side buttons.</li>
+      <li><strong>Scroll Wheel Simulation:</strong> Directional visual response to scroll input.</li>
+      <li><strong>Hover Highlight Zones:</strong> UI reacts to cursor presence for better interaction clarity.</li>
+      <li><strong>Scoped Input System:</strong> Testing occurs only within defined zones to ensure accurate measurement.</li>
+    </ul>
+  <br>
+    <h3>Technical Notes</h3>
+      <br>
+    <ul class="about-list">
+      <li>Polling rate is estimated using event frequency, not raw USB data.</li>
+      <li>Latency is approximated via <code>requestAnimationFrame</code> timing.</li>
+      <li>Side button detection may vary depending on browser and OS limitations.</li>
+      <li>No external libraries are used — fully built with native JavaScript, HTML, and CSS.</li>
+    </ul>
+  <br>
+    <h3>Purpose</h3>
+      <br>
+    <p>
+      This project serves as both a diagnostic utility and an experimental platform
+      for analyzing human input behavior, hardware performance, and interaction design.
+    </p>
+  <br>
+    <h3>Credits</h3>
+      <br>
+    <p class="credit">
+      Built by <strong>xkyrage (Tegar Ibrahim)</strong> - 2026<br>
+      All rights reserved.
+    </p>
+    </div></div>
+    
+
+  </main>
+</div>
+
+<script type="module" src="main.js"></script>
+<footer class="footer">
+  <div class="footer-content">
+    <span>© 2026 XkyMouse Tester</span>
+    <span class="footer-divider">•</span>
+    <span>Created by <strong>xkyrage (Tegar Ibrahim)</strong></span>
+    <span class="footer-divider">•</span>
+    <span>All Rights Reserved</span>
+  </div>
+</footer>
+</body>
+
+</html>
