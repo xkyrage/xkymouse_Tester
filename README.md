@@ -1,5 +1,6 @@
 XKYMOUSE TESTER
-<img width="2556" height="776" alt="image" src="https://github.com/user-attachments/assets/62cfa1e3-68af-44e9-b022-2fb65a149dd9" />
+<img width="2540" height="761" alt="image" src="https://github.com/user-attachments/assets/bd7aa136-abac-484a-95dc-7ee08bc0bcf9" />
+
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Status](https://img.shields.io/badge/status-stable-success)
 ![Tech](https://img.shields.io/badge/tech-HTML%20%7C%20CSS%20%7C%20JavaScript-orange)
