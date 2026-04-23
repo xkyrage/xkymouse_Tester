@@ -65,21 +65,6 @@ No frameworks. No dependencies. Pure performance.
 
 ---
 
-## 📂 Project Structure
-mouse-tester-pro/
-├── index.html
-├── style.css
-├── main.js
-└── modules/
-    ├── input.js
-    ├── stats.js
-    ├── ui.js
-    ├── graph.js
-    ├── drag.js
-    ├── raw.js
-    ├── analytics.js
-    └── navigation.js
-    
 ## ⚠️ Limitations
 
 - Polling rate is **estimated**, not raw USB data  
