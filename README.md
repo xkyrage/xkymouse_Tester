@@ -76,6 +76,13 @@ No frameworks. No dependencies. Pure performance.
   - Mouse driver/software  
 
 ---
+## Prototype
+<img width="2205" height="729" alt="image" src="https://github.com/user-attachments/assets/96bd86ea-2313-4784-ad15-03d2c2390be0" />
+<img width="1669" height="577" alt="image" src="https://github.com/user-attachments/assets/89899fe4-f3ed-4c7e-ac45-f6befd93d3ef" />
+
+
+
+---
 
 ## 🎯 Purpose
 
