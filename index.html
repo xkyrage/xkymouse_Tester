@@ -31,6 +31,10 @@
       <div class="stat"><span>Polling</span><h2 id="polling">0 Hz</h2></div>
       <div class="stat"><span>Max Hz</span><h2 id="maxPolling">0 Hz</h2></div>
       <div class="stat"><span>Jitter</span><h2 id="jitter">0</h2></div>
+      <div class="stat">
+  <span>Input Mode</span>
+  <h2 id="inputMode">AUTO</h2>
+</div>
     </div>
 
     <!-- OVERVIEW -->
@@ -91,27 +95,37 @@
     <h3>Core Features</h3>
     <br>
     <ul class="about-list">
-      <li><strong>Click Per Second (CPS):</strong> Measures click speed in real time.</li>
-      <li><strong>Latency Estimation:</strong> Approximates input delay using frame timing.</li>
-      <li><strong>Polling Rate Monitoring:</strong> Visualizes mouse report frequency (Hz) based on movement events.</li>
-      <li><strong>Real-Time Graph:</strong> Displays latency and polling spikes dynamically.</li>
-      <li><strong>Jitter Detection:</strong> Analyzes movement consistency and micro-variation.</li>
-      <li><strong>Drag Test (Slider Mode):</strong> Controlled horizontal movement test for precision and stability.</li>
-      <li><strong>Interactive Mouse UI:</strong> Visual feedback for all mouse buttons including side buttons.</li>
-      <li><strong>Scroll Wheel Simulation:</strong> Directional visual response to scroll input.</li>
-      <li><strong>Hover Highlight Zones:</strong> UI reacts to cursor presence for better interaction clarity.</li>
-      <li><strong>Scoped Input System:</strong> Testing occurs only within defined zones to ensure accurate measurement.</li>
-    </ul>
-  <br>
-    <h3>Technical Notes</h3>
-      <br>
-    <ul class="about-list">
-      <li>Polling rate is estimated using event frequency, not raw USB data.</li>
-      <li>Latency is approximated via <code>requestAnimationFrame</code> timing.</li>
-      <li>Side button detection may vary depending on browser and OS limitations.</li>
-      <li>No external libraries are used — fully built with native JavaScript, HTML, and CSS.</li>
-    </ul>
-  <br>
+  <li><strong>Click Per Second (CPS):</strong> Real-time click speed tracking with per-second refresh.</li>
+  <li><strong>Latency Estimation:</strong> Frame-based input delay approximation using high-resolution timing.</li>
+  <li><strong>Polling Rate Monitoring:</strong> Measures mouse event frequency (Hz) from movement activity within the test area.</li>
+  <li><strong>Max Polling Detection:</strong> Captures peak polling spikes to estimate hardware capability beyond average values.</li>
+  <li><strong>Raw Input Mode:</strong> Utilizes <code>pointerrawupdate</code> when supported for higher-fidelity input tracking.</li>
+  <li><strong>Fallback System:</strong> Automatically switches to <code>mousemove</code> when raw input is unavailable.</li>
+  <li><strong>Real-Time Graph:</strong> Visualizes latency and polling fluctuations including spikes and instability.</li>
+  <li><strong>Jitter Detection:</strong> Analyzes inconsistencies in cursor movement to detect instability or noise.</li>
+  <li><strong>Drag Test (Slider Mode):</strong> Controlled movement test for evaluating precision, smoothness, and stability.</li>
+  <li><strong>Interactive Mouse UI:</strong> Visual feedback for all mouse inputs including left, right, middle, and side buttons.</li>
+  <li><strong>Scroll Wheel Simulation:</strong> Direction-based animation reflecting real scroll input behavior.</li>
+  <li><strong>Hover Highlight Zones:</strong> Interactive regions respond visually to cursor position.</li>
+  <li><strong>Scoped Input System:</strong> All measurements are isolated within defined test zones for consistency.</li>
+</ul>
+
+<br>
+
+<h3>Technical Notes</h3>
+
+<br>
+
+<ul class="about-list">
+  <li><strong>Polling Rate Limitation:</strong> Values are based on browser event delivery and may not reflect true USB polling rate.</li>
+  <li><strong>Raw Input Support:</strong> <code>pointerrawupdate</code> is only available in certain browsers (Chromium-based recommended).</li>
+  <li><strong>Latency Measurement:</strong> Calculated using <code>performance.now()</code> and frame scheduling techniques.</li>
+  <li><strong>Event-Based Sampling:</strong> Data is derived from input events, not direct hardware access.</li>
+  <li><strong>Side Button Detection:</strong> May vary depending on browser, OS, and mouse driver support.</li>
+  <li><strong>No External Dependencies:</strong> Fully built using native HTML, CSS, and JavaScript for maximum performance.</li>
+</ul>
+
+<br>
     <h3>Purpose</h3>
       <br>
     <p>

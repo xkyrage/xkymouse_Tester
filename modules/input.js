@@ -14,12 +14,12 @@ testArea.addEventListener("mousedown", () => {
 
 export function initInput() {
 
-  // 🔒 disable context menu inside test area
+  // disable context menu inside test area
   document.addEventListener("contextmenu", (e) => {
     if (testArea.contains(e.target)) e.preventDefault();
   });
 
-  // ✅ USE POINTERDOWN (fix for side buttons)
+  // USE POINTERDOWN (fix for side buttons)
   testArea.addEventListener("pointerdown", (e) => {
     activateButton(e.button);
     registerClick();
@@ -35,7 +35,7 @@ export function initInput() {
     });
   });
 
-  // ✅ fallback for weird browsers (middle + side)
+  // fallback for weird browsers (middle + side)
   testArea.addEventListener("auxclick", (e) => {
     if (e.button === 1 || e.button === 3 || e.button === 4) {
       activateButton(e.button);

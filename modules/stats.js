@@ -4,7 +4,7 @@ import { getJitterScore } from "./analytics.js";
 let clicks = 0;
 let moveCount = 0;
 let lastTime = performance.now();
-let maxPolling = 0; // 🔥 NEW
+let maxPolling = 0;
 
 export function initStats() {
 
@@ -14,10 +14,19 @@ export function initStats() {
   const latency = document.getElementById("latency");
   const polling = document.getElementById("polling");
   const jitter = document.getElementById("jitter");
-  const maxEl = document.getElementById("maxPolling"); // 🔥 NEW
+  const maxEl = document.getElementById("maxPolling");
 
-  // 🔥 unified handler (avoids duplicate logic)
-  function handleMove() {
+  // Detect best available input mode
+  const supportsRaw = "onpointerrawupdate" in window;
+  const modeEl = document.getElementById("inputMode");
+if (modeEl) {
+  modeEl.textContent = supportsRaw ? "RAW" : "FALLBACK";
+}
+
+  console.log("Input Mode:", supportsRaw ? "RAW" : "FALLBACK");
+
+  // Unified handler
+  function handleInput(e) {
     moveCount++;
 
     const now = performance.now();
@@ -28,7 +37,7 @@ export function initStats() {
 
       pushPolling(hz);
 
-      // ✅ track max polling
+      // track max
       if (hz > maxPolling) {
         maxPolling = hz;
       }
@@ -37,25 +46,27 @@ export function initStats() {
     lastTime = now;
   }
 
-  // 🔥 use best available event
-  if ("onpointerrawupdate" in window) {
-    canvas.addEventListener("pointerrawupdate", handleMove);
-  } else {
-    canvas.addEventListener("mousemove", handleMove);
+  // RAW INPUT 
+  if (supportsRaw) {
+    canvas.addEventListener("pointerrawupdate", handleInput, { passive: true });
+  } 
+  // FALLBACK
+  else {
+    canvas.addEventListener("mousemove", handleInput, { passive: true });
   }
 
+  // UI update loop
   setInterval(() => {
     if (cps) cps.textContent = clicks;
     if (polling) polling.textContent = moveCount + " Hz";
     if (jitter) jitter.textContent = getJitterScore();
-
-    // 🔥 update max polling UI
     if (maxEl) maxEl.textContent = Math.round(maxPolling) + " Hz";
 
     clicks = 0;
     moveCount = 0;
   }, 1000);
 
+  // latency bridge
   window.__latency = (v) => {
     if (latency) latency.textContent = v.toFixed(2) + " ms";
   };
