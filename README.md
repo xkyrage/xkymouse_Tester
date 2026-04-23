@@ -77,8 +77,9 @@ No frameworks. No dependencies. Pure performance.
 
 ---
 ## Prototype
-<img width="2533" height="826" alt="image" src="https://github.com/user-attachments/assets/af93428e-5159-4efc-8082-09ae36c79244" />
-<img width="2218" height="795" alt="image" src="https://github.com/user-attachments/assets/5292ce84-03dd-4a19-a8f0-60125e73300e" />
+<img width="2205" height="729" alt="image" src="https://github.com/user-attachments/assets/96bd86ea-2313-4784-ad15-03d2c2390be0" />
+<img width="1669" height="577" alt="image" src="https://github.com/user-attachments/assets/89899fe4-f3ed-4c7e-ac45-f6befd93d3ef" />
+
 
 
 ---
