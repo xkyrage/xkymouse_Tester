@@ -25,7 +25,6 @@ if (modeEl) {
 
   console.log("Input Mode:", supportsRaw ? "RAW" : "FALLBACK");
 
-  // Unified handler
   function handleInput(e) {
     moveCount++;
 
@@ -37,7 +36,7 @@ if (modeEl) {
 
       pushPolling(hz);
 
-      // track max
+  
       if (hz > maxPolling) {
         maxPolling = hz;
       }
@@ -46,11 +45,11 @@ if (modeEl) {
     lastTime = now;
   }
 
-  // RAW INPUT 
+
   if (supportsRaw) {
     canvas.addEventListener("pointerrawupdate", handleInput, { passive: true });
   } 
-  // FALLBACK
+
   else {
     canvas.addEventListener("mousemove", handleInput, { passive: true });
   }
@@ -66,7 +65,6 @@ if (modeEl) {
     moveCount = 0;
   }, 1000);
 
-  // latency bridge
   window.__latency = (v) => {
     if (latency) latency.textContent = v.toFixed(2) + " ms";
   };

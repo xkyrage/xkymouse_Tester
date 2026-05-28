@@ -5,7 +5,7 @@ export function initMouse() {
     highlight(e.button);
     registerClick();
 
-    // latency test
+
     const start = performance.now();
     requestAnimationFrame(() => {
       const latency = performance.now() - start;

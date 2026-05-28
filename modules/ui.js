@@ -12,20 +12,19 @@ export function scrollEffect(delta) {
   const el = document.getElementById("scrollWheel");
   if (!el) return;
 
-  // determine direction
+
   const direction = delta < 0 ? -1 : 1;
 
-  // accumulate movement
+
   scrollOffset += direction * 6;
 
-  // clamp so it doesn't go too far
   scrollOffset = Math.max(-12, Math.min(12, scrollOffset));
 
-  // apply transform
+
   el.style.transform = `translateY(${scrollOffset}px)`;
   el.classList.add("active");
 
-  // reset after user stops scrolling
+  
   clearTimeout(resetTimer);
   resetTimer = setTimeout(() => {
     scrollOffset = 0;
